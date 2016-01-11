@@ -1,0 +1,75 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Open Sans';
+  color: #2B2B2B;
+  min-height: 100%
+}
+
+body.landing {
+  background: #EDEDED;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hero-content {
+  font-family: 'Montserrat';
+  background: #332945;
+  padding: 100px;
+  color: #E8C67B;
+  }
+
+.hero-content h1 {
+  font-size: 100px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: -11px;
+}
+.hero-content h3 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+.selling-points {
+  padding: 100px;
+}
+
+.selling-points .point {
+  width: 32%;
+  float: left;
+  padding: 0 0.5%;
+}
+
+.selling-points .point h5 {
+  font-family: 'Montserrat';
+  color: #332945;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  text-align: center;
+  height: 85px;
+}
+
+.selling-points .point p {
+  font-size: 17px;
+}
+
+.nav-bar {
+  background: #231C2E;
+  height: 86px;
+  padding: 0 100px;
+}
+
+.nav-bar .logo {
+  font-family: 'Montserrat';
+  color: #E8C67B;
+  font-size: 60px;
+  font-weight: 700;
+  padding: 5px;
+}
