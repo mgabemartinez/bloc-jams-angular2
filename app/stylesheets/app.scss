@@ -1,41 +1,49 @@
 html {
-  height: 100%; }
+  height: 100%;
+}
 
 body {
   font-family: 'Open Sans';
-  color: #2b2b2b;
-  min-height: 100%; }
+  color: #2B2B2B;
+  min-height: 100%
+}
 
 body.landing {
-  background: #ededed; }
+  background: #EDEDED;
+}
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 .hero-content {
   font-family: 'Montserrat';
   background: #332945;
   padding: 100px;
-  color: #e8c67b; }
+  color: #E8C67B;
+  }
 
 .hero-content h1 {
   font-size: 100px;
   margin-bottom: 30px;
   font-weight: 700;
-  letter-spacing: -11px; }
-
+  letter-spacing: -11px;
+}
 .hero-content h3 {
   font-size: 30px;
   font-weight: 700;
-  letter-spacing: -2px; }
+  letter-spacing: -2px;
+}
 
 .selling-points {
-  padding: 100px; }
+  padding: 100px;
+}
 
 .selling-points .point {
   width: 32%;
   float: left;
-  padding: 0 0.5%; }
+  padding: 0 0.5%;
+}
 
 .selling-points .point h5 {
   font-family: 'Montserrat';
@@ -45,22 +53,23 @@ a {
   letter-spacing: -1px;
   margin-bottom: 20px;
   text-align: center;
-  height: 85px; }
+  height: 85px;
+}
 
 .selling-points .point p {
-  font-size: 17px; }
+  font-size: 17px;
+}
 
 .nav-bar {
-  background: #231c2e;
+  background: #231C2E;
   height: 86px;
-  padding: 0 100px; }
+  padding: 0 100px;
+}
 
 .nav-bar .logo {
   font-family: 'Montserrat';
-  color: #e8c67b;
+  color: #E8C67B;
   font-size: 60px;
   font-weight: 700;
-  padding: 5px; }
-
-
-/*# sourceMappingURL=app.css.map*/
+  padding: 5px;
+}
