@@ -127,7 +127,6 @@ a:hover {
    font-size: 16px;
  }
 
-
 .table.album-song-listing {
    // Override the font for the entire table.
    font-weight: 300;
@@ -139,6 +138,40 @@ a:hover {
  }
 
 
+
+///////////////////////////////
+////   Collection Page     ////
+///////////////////////////////
+
+.collection-album-container {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 0;
+  background: #EBEBEB;
+}
+
+.collection-album-container .caption {
+  margin-top: 13px;
+}
+
+.collection-album-container .caption p {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.6);
+  padding-left: 30px;
+}
+
+.collection-album-container .caption p a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.collection-album-container .caption p a.album-name {
+  color: black;
+}
+
+.collection-album-container img {
+    max-width: 100%;
+  }
 
 
 
