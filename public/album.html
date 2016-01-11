@@ -6,74 +6,83 @@
     <!-- CSS Reset -->
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.17.1/build/cssreset/cssreset-min.css">
     
-    <!-- stylesheet -->
-    <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     
     <!-- Open Sans -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,600,700,300' rel='stylesheet' type='text/css'>
 
     <!-- Montserrat, Varela Round -->
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Varela+Round' rel='stylesheet' type='text/css'>
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
   </head>
 
 
-  <body>
+  <body class='player'>
 
-    <div class='nav-bar'> <!-- Nav Bar -->
-      <a href="#"><h3 class='logo'> b. </h3> </a>
-    </div>
+    <nav class='player-header-nav navbar'>
+       <div class='container'>
+         <div class='navbar-header'> <!-- Nav Bar -->
+           <a class='logo navbar-left'>
+             <h3 class='logo'> b. </h3>
+           </a>
+         </div>
+       </div>
+     </nav>
 
-    <div class='album-container'>  <!-- Album Container -->
+    <div class='album-container container'>  <!-- Album Container -->
 
-      <div class="album-header-container"> <!-- Album Header -->
+      <div class="album-header-container row"> <!-- Album Header -->
         
-        <div> <!-- Album Image -->
+        <div class='col-md-3'> <!-- Album Image -->
           <img src="/images/album-placeholder.png" />
         </div> 
 
-        <div class="album-information"> <!-- Album Information -->
+        <div class='album-header-information col-md-8 col-md-push-1'> <!-- Album Information -->
           <h3> Traveler </h3>
           <h4> CAARGO </h4>
           <h5> 2015 </h5>
         </div>
       
       </div>  <!-- Album Header -->
-    </div>  <!-- Album Container -->
+  
 
 
-    <div> <!-- Song table -->
-       <table class='album-song-listing'>
+    <div class='row'> <!-- Song table -->
+       <table class='album-song-listing table'>
            <tr>
-             <td> 1 </td>
-             <td> Blue </td>
-             <td> X:XX </td>
+             <td class='col-md-1'> 1 </td>
+             <td class='col-md-9'> Blue </td>
+             <td class='col-md-2'> X:XX </td>
            </tr>
            <tr>
-             <td> 2 </td>
-             <td> Green </td>
-             <td> X:XX </td>
+             <td class='col-md-1'> 2 </td>
+             <td class='col-md-9'> Green </td>
+             <td class='col-md-2'> X:XX </td>
            </tr>
            <tr>
-             <td> 3 </td>
-             <td> Red </td>
-             <td> X:XX </td>
+             <td class='col-md-1'> 3 </td>
+             <td class='col-md-9'> Red </td>
+             <td class='col-md-2'> X:XX </td>
            </tr>
            <tr>
-             <td> 4 </td>
-             <td> Pink </td>
-             <td> X:XX </td>
+             <td class='col-md-1'> 4 </td>
+             <td class='col-md-9'> Pink </td>
+             <td class='col-md-2'> X:XX </td>
            </tr>
            <tr>
-             <td> 5 </td>
-             <td> Magenta </td>
-             <td> X:XX </td>
+             <td class='col-md-1'> 5 </td>
+             <td class='col-md-9'> Magenta </td>
+             <td class='col-md-2'> X:XX </td>
            </tr>
       </table>
     </div> <!-- Song table -->
 
     
 
-
+ </div>  <!-- Album Container -->
 
 
 

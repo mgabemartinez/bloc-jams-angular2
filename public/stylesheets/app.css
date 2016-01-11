@@ -9,13 +9,29 @@ body {
 body.landing {
   background: #ededed; }
 
+.player-header-nav {
+  background-color: #231c2e;
+  border-radius: 0;
+  margin: 0; }
+
+body .landing .navbar {
+  height: 50px;
+  margin-bottom: 0; }
+
+nav {
+  margin-bottom: 0; }
+
 a {
   text-decoration: none; }
+
+a:hover {
+  text-decoration: none;
+  color: black; }
 
 .hero-content {
   font-family: 'Montserrat';
   background: #332945;
-  padding: 100px;
+  padding: 100px 0;
   color: #e8c67b; }
 
 .hero-content h1 {
@@ -30,7 +46,7 @@ a {
   letter-spacing: -2px; }
 
 .selling-points {
-  padding: 100px; }
+  padding: 100px 0; }
 
 .selling-points .point {
   width: 32%;
@@ -50,17 +66,40 @@ a {
 .selling-points .point p {
   font-size: 17px; }
 
-.nav-bar {
-  background: #231c2e;
-  height: 86px;
-  padding: 0 100px; }
-
-.nav-bar .logo {
+.navbar .logo {
   font-family: 'Montserrat';
   color: #e8c67b;
-  font-size: 60px;
-  font-weight: 700;
-  padding: 5px; }
+  font-size: 50px;
+  font-weight: 700; }
+
+.album-header-container {
+  margin-top: 75px;
+  margin-bottom: 60px; }
+
+.album-header-information {
+  margin-top: 45px;
+  margin-bottom: 30px; }
+
+.album-header-information h3, .album-header-information h4, .album-header-information h5 {
+  line-height: 150%;
+  font-family: 'Montserrat'; }
+
+.album-header-information h3 {
+  font-size: 48px;
+  font-weight: 700; }
+
+.album-header-information h4 {
+  font-size: 24px; }
+
+.album-header-information h5 {
+  font-size: 16px; }
+
+.table.album-song-listing {
+  font-weight: 300; }
+
+.table.album-song-listing td {
+  padding: 16px;
+  border-top: 1px solid #dedede; }
 
 
 /*# sourceMappingURL=app.css.map*/
