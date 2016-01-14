@@ -44,7 +44,7 @@
     <div class='album-container container'>  <!-- Album Container -->
 
       <div class="album-header-container row"> <!-- Album Header -->
-        
+
         <div class='col-md-3'> <!-- Album Image -->
           <img src="/images/album-placeholder.png" />
         </div> 
@@ -58,17 +58,73 @@
       </div>  <!-- Album Header -->
   
 
+      <div class='row'> <!-- Song table -->
+        <table class='album-song-listing table'>
 
-    <div class='row'> <!-- Song table -->
-       <table class='album-song-listing table'>
-          
+              <!--  -->
+              <!-- JQuery populating -->
+              <!--  -->
 
-      </table>
-    </div> <!-- Song table -->
+        </table>
+      </div> <!-- Song table -->
 
-    
+    </div>  <!-- Album Container -->
 
- </div>  <!-- Album Container -->
+
+
+
+<!--  -->
+<!-- PLAYER BAR BOTTOM -->
+<!--  -->
+    <div class="player-bar">
+      <div class="container">
+        
+        <div class="play-controls player-bar-control-group left-controls">
+          <a class="previous">
+            <i class="fa fa-backward"></i>
+          </a>
+          <a class="play-pause">
+            <i class="fa fa-play"></i>
+          </a>
+          <a class="next">
+            <i class="fa fa-forward"></i>
+          </a>
+        </div>  <!-- .play-controls player-bar-control-group left-controls -->
+
+
+        <div class="currently-playing player-bar-control-group">
+          <h2 class="song-name"> No Stranger </h2>
+          <div class="seek-control">
+            <div class="seek-bar">
+              <div class="fill"></div>
+              <div class="thumb"></div>
+            </div>
+            <div class="current-time"> 2:30 </div>
+            <div class="total-time"> 3:58 </div>
+          </div>
+          <h3 class="artist-name"> Small Black</h3>
+        </div>
+
+        <div class="right-controls player-bar-control-group">
+          <div class="volume">
+            <i class="fa fa-volume-up"></i>
+            <div class="seek-bar">
+              <div class="fill"></div>
+              <div class="thumb"></div>
+            </div>
+          </div>
+        
+          <div class="queue-toggle">
+            <a>
+              <i class="fa fa-list-ul"></i>
+            </a>
+          </div>
+        </div> 
+      </div> <!-- .container -->
+    </div>  <!-- .player-bar -->
+
+
+
 
 
 
