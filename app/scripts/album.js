@@ -33,7 +33,6 @@ var albumCAARGO = {
 
 var currentlyPlayingSong = null;
 
-
 var createSongRow = function(songNumber, songName, songLength) {
   var template = 
 
@@ -52,7 +51,6 @@ var createSongRow = function(songNumber, songName, songLength) {
   // playing and we hover over the row.
   var onHover = function(event) {
     var songNumberCell = $(this).find('.song-number');
-    
     var songNumber = songNumberCell.data('song-number');
 
     if (songNumber !== currentlyPlayingSong) {
