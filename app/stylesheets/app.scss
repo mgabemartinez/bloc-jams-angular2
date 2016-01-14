@@ -134,7 +134,7 @@ a:hover {
  }
 
   .table.album-song-listing  td {
-   padding: 16px;
+   padding-top: 26px;
    border-top: 1px solid #DEDEDE;
  }
 
@@ -223,6 +223,64 @@ a:hover {
 .collection-album-container .collection-overlay-button .fa-play {
   padding-left: 5px;
 }
+
+
+
+
+///////////////////////////////
+////   Album Page Buttons  ////
+///////////////////////////////
+
+.album-song-button {
+  text-align: center;
+  font-size: 14px;
+  background-color: white;
+  color: #332945;
+  border-radius: 50% 50%;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+}
+
+.album-song-button {
+  cursor: pointer;
+  color: white;
+  background-color: #332945;
+}
+
+.album-song-button {
+  line-height: 28px;
+  color: white;
+}
+
+.album-song-button:hover {
+  color: white;
+}
+
+
+
+.album-song-button .fa-play {
+  padding-left: 5px;
+}
+
+.album-song-listing td {
+  vertical-align: middle;
+}
+
+td.song-number {
+  padding: 0;
+  height: 70px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
 
 
 
