@@ -1,0 +1,46 @@
+.hero-content {
+  font-family: 'Montserrat';
+  background: #332945;
+  padding: 100px 0;
+  color: #E8C67B;
+  
+  h1 {
+    font-size: 100px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: -11px;
+  }
+
+  h3 {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -2px;
+  }
+
+}
+
+
+.selling-points {
+  padding: 100px 0;
+
+  .point {
+    width: 32%;
+    float: left;
+    padding: 0 0.5%;
+
+    h5 {
+      font-family: 'Montserrat';
+      color: #332945;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+      text-align: center;
+      height: 85px;
+    }
+
+    p {
+      font-size: 17px;
+    }
+  }
+}
