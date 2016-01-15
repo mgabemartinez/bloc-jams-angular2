@@ -2,6 +2,8 @@
 @import "album";
 @import "collection";
 @import "player_bar";
+@import "buttons";
+@import "profile";
 
 
 html {
@@ -48,7 +50,6 @@ a:hover {
   text-decoration: none;
   color: black;
 }
-
 
 
 .navbar .logo {
