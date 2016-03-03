@@ -334,14 +334,35 @@ if (document.URL.match(/\/album.html/)) {
  //require('./profile');
 
 
-angular.module('BlocJams', []).controller('Landing.controller', ['$scope', function($scope) {
+blocJams = angular.module('BlocJams', ['ui.router']); 
+
+
+blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
+   $locationProvider.html5Mode(true);
+ 
+   $stateProvider.state('landing', {
+     url: '/',
+     controller: 'Landing.controller',
+     templateUrl: '/templates/landing.html'
+   });
+
+   $stateProvider.state('song', {
+     url: '/song',
+     templateUrl: '/templates/song.html'
+   });
+
+
+
+}]);
+
+
+blocJams.controller('Landing.controller', ['$scope', function($scope) {
   console.log("Landing.controller");
   $scope.subText = "turn the music up";
 
   $scope.subTextClicked = function() {
      $scope.subText += '!';
    };
-
 
     $scope.albumURLs = [
      '/images/album-placeholders/album-1.jpg',
@@ -354,6 +375,7 @@ angular.module('BlocJams', []).controller('Landing.controller', ['$scope', funct
      '/images/album-placeholders/album-8.jpg',
      '/images/album-placeholders/album-9.jpg',
    ];
+
  }])
 });
 
