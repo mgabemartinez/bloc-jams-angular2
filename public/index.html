@@ -15,6 +15,9 @@
     <!-- Montserrat, Varela Round -->
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Varela+Round' rel='stylesheet' type='text/css'>
 
+    <!-- Font Awesome -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
     <!-- stylesheet -->
     <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
 
@@ -47,10 +50,13 @@
     <nav class='player-header-nav navbar'>
        <div class='container'>
          <div class='navbar-header'> <!-- Nav Bar -->
-           <a class='logo navbar-left'>
+           <a ui-sref='landing'class='logo navbar-left'>
              <h3 class='logo'> b. </h3>
            </a>
-         </div>
+         </div> 
+         <ul class="nav navbar-nav navbar-right">
+          <li><a ui-sref='collection'>Library</a></li>
+        </ul>
        </div>
     </nav>
 

@@ -3,6 +3,25 @@
  //require('./collection');
  //require('./profile');
 
+var albumPicasso = {
+  name: 'CAARGO EP',
+  artist: 'CAARGO',
+  label: 'G/M',
+  year: '2015',
+  albumArtUrl: 'images/album-placeholder.png',
+
+  songs: [
+    { name: 'Traveler', length: '4:36' },
+    { name: 'Dreamreader', length: '4:36' },
+    { name: 'Mala', length: '4:36' },
+    { name: 'Gold', length: '4:36' },
+    { name: 'Above', length: '7:10' },
+  ]
+};
+
+
+
+
 
 blocJams = angular.module('BlocJams', ['ui.router']); 
 
@@ -21,6 +40,11 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
      templateUrl: '/templates/song.html'
    });
 
+   $stateProvider.state('collection', {
+     url: '/collection',
+     controller: 'Collection.controller',
+     templateUrl: '/templates/collection.html'
+   });
 
 
 }]);
@@ -46,4 +70,21 @@ blocJams.controller('Landing.controller', ['$scope', function($scope) {
      '/images/album-placeholders/album-9.jpg',
    ];
 
- }])
+ }]);
+
+
+
+blocJams.controller('Collection.controller', ['$scope', function($scope) {
+
+  $scope.albums = [];
+
+  for (var i=0; i < 35; i++) {
+    $scope.albums.push(angular.copy(albumPicasso));
+  }
+
+}]);
+
+
+
+
+
