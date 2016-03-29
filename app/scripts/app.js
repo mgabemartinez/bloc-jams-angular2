@@ -1,8 +1,10 @@
 //require('./landing');
- //require('./album');
- //require('./collection');
- //require('./profile');
+//require('./album');
+//require('./collection');
+//require('./profile');
 
+
+// CAARGO EP
 var albumCAARGO = {
   name: 'CAARGO EP',
   artist: 'CAARGO',
@@ -11,21 +13,41 @@ var albumCAARGO = {
   albumArtUrl: 'images/albumcaargo.jpg',
 
   songs: [
-    { name: 'Traveler', length: '4:36' },
-    { name: 'Dreamreader', length: '4:36' },
-    { name: 'Mala', length: '4:36' },
-    { name: 'Gold', length: '4:36' },
-    { name: 'Above', length: '7:10' },
+    { name: 'Traveler', 
+      length: '4:36', 
+      audioUrl: '/music/placeholders/Traveler'
+    },
+    
+    { name: 'Dreamreader', 
+      length: '4:36', 
+      audioUrl: '/music/placeholders/Dreamreader'
+    },
+
+    { name: 'Mala', 
+      length: '4:36', 
+      audioUrl: '/music/placeholders/Mala'
+    },
+
+    { name: 'Gold', 
+      length: '4:36', 
+      audioUrl: '/music/placeholders/Gold'
+    },
+
+    { name: 'Above', 
+      length: '7:10', 
+      audioUrl: '/music/placeholders/Above'
+    },
   ]
 };
 
 
 
 
-
+// ANGULAR MODULE
 blocJams = angular.module('BlocJams', ['ui.router']); 
 
 
+// Config
 blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
    $locationProvider.html5Mode(true);
  
@@ -56,6 +78,8 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
 }]);
 
 
+
+// Landing Controller
 blocJams.controller('Landing.controller', ['$scope', function($scope) {
   console.log("Landing.controller");
   $scope.subText = "turn the music up";
@@ -80,7 +104,8 @@ blocJams.controller('Landing.controller', ['$scope', function($scope) {
 
 
 
-blocJams.controller('Collection.controller', ['$scope', function($scope) {
+// Collection Controller
+blocJams.controller('Collection.controller', ['$scope', 'SongPlayer', function($scope, SongPlayer) {
 
   $scope.albums = [];
 
@@ -88,10 +113,15 @@ blocJams.controller('Collection.controller', ['$scope', function($scope) {
     $scope.albums.push(angular.copy(albumCAARGO));
   }
 
+  $scope.playAlbum =function(album) {
+    SongPlayer.setSong(album, album.songs[0]); //Targets first song in the array.
+  }
+
 }]);
 
 
 
+// Album Controller
 blocJams.controller('Album.controller', ['$scope', 'SongPlayer', function($scope, SongPlayer) {
    $scope.album = angular.copy(albumCAARGO);
 
@@ -120,7 +150,6 @@ blocJams.controller('Album.controller', ['$scope', 'SongPlayer', function($scope
 
    $scope.playSong = function(song) {
     SongPlayer.setSong($scope.album, song);
-    SongPlayer.play();
    };
 
    $scope.pauseSong = function(song) {
@@ -130,17 +159,25 @@ blocJams.controller('Album.controller', ['$scope', 'SongPlayer', function($scope
 }]);
 
 
+
+// Player Bar Controller
 blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', function($scope, SongPlayer) {
    $scope.songPlayer = SongPlayer;
  }]);
 
 
+
+// SongPlayer Service
 blocJams.service('SongPlayer', function() {
+  
+  var currentSoundFile = null;
   
   var trackIndex = function(album, song) {
     return album.songs.indexOf(song);
   };
   
+
+
   return {   
     currentSong: null,
     
@@ -151,11 +188,13 @@ blocJams.service('SongPlayer', function() {
 
     play: function() {
       this.playing = true;
+      currentSoundFile.play();
     },
 
 
     pause: function() {
       this.playing = false;
+      currentSoundFile.pause();
     },
 
 
@@ -168,7 +207,8 @@ blocJams.service('SongPlayer', function() {
         currentTrackIndex = 0;
       }
 
-      this.currentSong = this.currentAlbum.songs[currentTrackIndex];
+      var song = this.currentAlbum.songs[currentTrackIndex];
+      this.setSong(this.currentAlbum, song);
     },
 
 
@@ -181,13 +221,25 @@ blocJams.service('SongPlayer', function() {
           currentTrackIndex = this.currentAlbum.songs.length - 1;
         }
 
-        this.currentSong = this.currentAlbum.songs[currentTrackIndex];
+        var song = this.currentAlbum.songs[currentTrackIndex];
+        this.setSong(this.currentAlbum, song);
     },
 
 
     setSong: function(album, song) {
+      if (currentSoundFile) {
+        currentSoundFile.stop();
+      }
+
       this.currentAlbum = album;
       this.currentSong = song;
+
+      currentSoundFile = new buzz.sound(song.audioUrl, {
+        formats: [ "mp3" ],
+        preload: true
+      });
+
+      this.play();
     }
   }
 })
