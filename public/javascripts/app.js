@@ -333,12 +333,12 @@ if (document.URL.match(/\/album.html/)) {
  //require('./collection');
  //require('./profile');
 
-var albumPicasso = {
+var albumCAARGO = {
   name: 'CAARGO EP',
   artist: 'CAARGO',
   label: 'G/M',
   year: '2015',
-  albumArtUrl: 'images/album-placeholder.png',
+  albumArtUrl: 'images/albumcaargo.jpg',
 
   songs: [
     { name: 'Traveler', length: '4:36' },
@@ -374,6 +374,12 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
      url: '/collection',
      controller: 'Collection.controller',
      templateUrl: '/templates/collection.html'
+   });
+
+   $stateProvider.state('album', {
+     url: '/album',
+     templateUrl: '/templates/album.html',
+     controller: 'Album.controller'
    });
 
 
@@ -413,6 +419,65 @@ blocJams.controller('Collection.controller', ['$scope', function($scope) {
   }
 
 }]);
+
+
+
+blocJams.controller('Album.controller', ['$scope', function($scope) {
+   $scope.album = angular.copy(albumCAARGO);
+
+
+   var hoveredSong = null;
+   var playingSong = null;
+
+   $scope.onHoverSong = function(song) {
+    hoveredSong = song;
+   };
+
+   $scope.offHoverSong = function(song) {
+    hoveredSong = null;
+   };
+
+   $scope.getSongState = function(song) {
+      if (song === playingSong) {
+        return 'playing';
+      }
+
+      else if (song === hoveredSong) {
+        return 'hovered';
+      }
+
+      return 'default';
+   };
+
+   $scope.playSong = function(song) {
+    playingSong = song;
+   };
+
+   $scope.pauseSong = function(song) {
+    playingSong = null;
+   };
+
+ }]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
