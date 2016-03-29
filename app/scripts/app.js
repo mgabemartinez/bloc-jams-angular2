@@ -85,7 +85,7 @@ blocJams.controller('Collection.controller', ['$scope', function($scope) {
   $scope.albums = [];
 
   for (var i=0; i < 35; i++) {
-    $scope.albums.push(angular.copy(albumPicasso));
+    $scope.albums.push(angular.copy(albumCAARGO));
   }
 
 }]);

@@ -1,27 +1,40 @@
 <div class="collection-container container">
   <div class="row">
-    <div ng-repeat="album in albums" class="collection-album-container col-md-2">
-      <div ng-mouseenter="showOverlay = true" ng-mouseleave="showOverlay = false" class="collection-album-image-container">
+    
+    <!-- Album Container -->
+    <div class="collection-album-container col-md-2"
+         ng-repeat="album in albums">
+
+      <!-- Album Image Container    -->
+      <div class="collection-album-image-container"
+           ng-mouseenter="showOverlay = true" 
+           ng-mouseleave="showOverlay = false" >
         
+        <!-- Album Artwork -->
         <img ng-src="{{ album.albumArtUrl }}">
         
+        <!-- Album Image Overlay -->
         <div class="collection-album-image-overlay" ng-show="showOverlay">
           
+          <!-- Overlay Content -->
           <div class="collection-overlay-content">
             
+            <!-- Play Button -->
             <a class="collection-overlay-button" ui-sref="album">
               <i class="fa fa-play"></i>
             </a>
             
             &nbsp;
             
+            <!-- Add Button -->
             <a class="collection-overlay-button">
               <i class="fa fa-plus"></i>
             </a>
             
           </div>
-        </div>
-      </div>
+
+        </div> <!-- Album Image Overlay -->
+      </div> <!-- Album Image Container -->
 
 
       <div class="collection-album-info caption">
@@ -46,4 +59,8 @@
       </div>
     </div>
   </div>
+
+  <!-- Player Bar -->
+  <ng-include src="'/templates/player_bar.html'"></ng-include>
+
 </div>
