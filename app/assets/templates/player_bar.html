@@ -1,7 +1,8 @@
-<div class="player-bar">
-  <div class="container">
-   
+<div class="player-bar"
+     ng-controller="PlayerBar.controller">
 
+  <div class="container">
+  
 
     <!-- Left Controls -->
     <div class="play-controls player-bar-control-group left controls">
@@ -13,12 +14,21 @@
       
       <!-- Play Button -->
       <a class="play-pause">
-        <i class="fa fa-play"></i>
+        <i class="fa fa-play" 
+           ng-show="!songPlayer.playing"
+           ng-click="SongPlayer.play()">
+        </i>
+
+        <i class="fa fa-pause"
+           ng-show="songPlayer.playing"
+           ng-click="SongPlayer.pause()">
+        </i>
       </a>
 
       <!-- Next Button -->
       <a class="next">
-        <i class="fa fa-forward"></i>
+        <i class="fa fa-forward">
+        </i>
       </a>
 
     </div>
@@ -31,7 +41,7 @@
       
       <!-- Song Name -->
       <h2 class="song-name">
-        {{ song.name }} tRaVeLeR
+        {{ songPlayer.currentSong.name }}
       </h2>
 
       <!-- Seek Controls -->
@@ -44,14 +54,21 @@
         </div>
 
         <!-- Current Time -->
-        <div class="current-time"> 2:30 </div>
+        <div class="current-time"> 
+          {{ songPlayer.playTime }}
+        </div>
 
         <!-- Total Time -->
-        <div class="total-time"> 4:45</div>
+        <div class="total-time"> 
+          {{ songPlayer.currentSong.length }}
+        </div>
+
       </div>
 
       <!-- Artist Name -->
-      <h3 class="artist-name"> CaArGo </h3>
+      <h3 class="artist-name">
+        {{ songPlayer.currentAlbum.artist }}
+      </h3>
 
     </div>
 
