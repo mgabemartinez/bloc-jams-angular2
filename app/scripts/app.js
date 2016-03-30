@@ -13,30 +13,11 @@ var albumCAARGO = {
   albumArtUrl: 'images/albumcaargo.jpg',
 
   songs: [
-    { name: 'Traveler', 
-      length: '4:36', 
-      audioUrl: '/music/placeholders/Traveler'
-    },
-    
-    { name: 'Dreamreader', 
-      length: '4:36', 
-      audioUrl: '/music/placeholders/Dreamreader'
-    },
-
-    { name: 'Mala', 
-      length: '4:36', 
-      audioUrl: '/music/placeholders/Mala'
-    },
-
-    { name: 'Gold', 
-      length: '4:36', 
-      audioUrl: '/music/placeholders/Gold'
-    },
-
-    { name: 'Above', 
-      length: '7:10', 
-      audioUrl: '/music/placeholders/Above'
-    },
+      { name: 'Traveler', length: 276.00, audioUrl: '/music/placeholders/Traveler' }, 
+      { name: 'Dreamreader', length: 266.00, audioUrl: '/music/placeholders/Dreamreader' },
+      { name: 'Mala', length: 276.00, audioUrl: '/music/placeholders/Mala' },
+      { name: 'Gold', length: 382.00, audioUrl: '/music/placeholders/Gold' },
+      { name: 'Above', length: 426.00, audioUrl: '/music/placeholders/Above' }
   ]
 };
 
@@ -225,6 +206,15 @@ blocJams.service('SongPlayer', function() {
     },
 
 
+    seek: function(time) {
+       // Checks to make sure that a sound file is playing before seeking.
+      if(currentSoundFile) {
+         // Uses a Buzz method to set the time of the song.
+         currentSoundFile.setTime(time);
+      }
+    },
+
+
     setSong: function(album, song) {
       if (currentSoundFile) {
         currentSoundFile.stop();
@@ -264,23 +254,49 @@ blocJams.directive('slider', ['$document', function($document){
      return offsetXPercent;
   }
 
+  var numberFromValue = function(value, defaultValue) {
+     if (typeof value === 'number') {
+       return value;
+     }
+ 
+     if(typeof value === 'undefined') {
+       return defaultValue;
+     }
+ 
+     if(typeof value === 'string') {
+       return Number(value);
+     }
+  }
 
 
   return {
     templateUrl: '/templates/directives/slider.html',
     replace: true,
     restrict: 'E',
-    scope: {},
+    scope: {
+      onChange: '&'
+    },    
     link: function(scope, element, attributes) {
 
       scope.value = 0;
-      scope.max = 200;
+      scope.max = 100;
  
       var $seekBar = $(element);
 
+      attributes.$observe('value', function(newValue) {
+        scope.value = numberFromValue(newValue, 0);
+      });
+ 
+      attributes.$observe('max', function(newValue) {
+        scope.max = numberFromValue(newValue, 100) || 100;
+      });
+
       var percentString = function () {
-         var percent = Number(scope.value) / Number(scope.max) * 100;
-         return percent + "%";
+        var percent = Number(scope.value) / Number(scope.max) * 100;
+        var value = scope.value || 0;
+        var max = scope.max || 100;
+        percent = value / max * 100;
+        return percent + "%";
       }
  
       scope.fillStyle = function() {
@@ -294,6 +310,7 @@ blocJams.directive('slider', ['$document', function($document){
       scope.onClickSlider = function(event) {
          var percent = calculateSliderPercentFromMouseEvent($seekBar, event);
          scope.value = percent * scope.max;
+         notifyCallback(scope.value);
       }
 
       scope.trackThumb = function() {
@@ -301,6 +318,7 @@ blocJams.directive('slider', ['$document', function($document){
            var percent = calculateSliderPercentFromMouseEvent($seekBar, event);
            scope.$apply(function(){
              scope.value = percent * scope.max;
+             notifyCallback(scope.value);
            });
          });
  
@@ -309,6 +327,13 @@ blocJams.directive('slider', ['$document', function($document){
            $document.unbind('mousemove.thumb');
            $document.unbind('mouseup.thumb');
          });
+      };
+
+
+      var notifyCallback = function(newValue) {
+         if(typeof scope.onChange === 'function') {
+           scope.onChange({value: newValue});
+         }
       };
 
 

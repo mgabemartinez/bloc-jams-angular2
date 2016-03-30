@@ -50,7 +50,10 @@
       <div class="seek-control">
         
         <!-- Seek Bar -->
-        <slider></slider>
+        <slider value='{{ playTime }}' 
+                max='{{ songPlayer.currentSong.length }}'
+                on-change='songPlayer.seek(value)'>
+        </slider>
 
         <!-- Current Time -->
         <div class="current-time"> 
