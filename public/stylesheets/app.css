@@ -194,9 +194,10 @@
     color: white; }
     .player-bar .volume i {
       display: inline-block;
-      width: 40px;
+      width: 20px;
       font-size: 20px;
-      vertical-align: middle; }
+      vertical-align: middle;
+      text-align: left; }
     .player-bar .volume .slider {
       display: inline-block;
       vertical-align: middle;
