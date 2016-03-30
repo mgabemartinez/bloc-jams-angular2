@@ -57,12 +57,12 @@
 
         <!-- Current Time -->
         <div class="current-time"> 
-          {{ songPlayer.playTime }}
+          {{ playTime | timecode }}
         </div>
 
         <!-- Total Time -->
         <div class="total-time"> 
-          {{ songPlayer.currentSong.length }}
+          {{ songPlayer.currentSong.length | timecode}}
         </div>
 
       </div>
