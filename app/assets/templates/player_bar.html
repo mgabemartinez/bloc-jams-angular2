@@ -15,15 +15,8 @@
       
       <!-- Play Button -->
       <a class="play-pause">
-        <i class="fa fa-play" 
-           ng-show="!songPlayer.playing"
-           ng-click="SongPlayer.play()">
-        </i>
-
-        <i class="fa fa-pause"
-           ng-show="songPlayer.playing"
-           ng-click="SongPlayer.pause()">
-        </i>
+       <i class='fa fa-play' ng-show="!songPlayer.playing" ng-click="songPlayer.play()"></i>
+         <i class='fa fa-pause' ng-show="songPlayer.playing" ng-click="songPlayer.pause()"></i>
       </a>
 
       <!-- Next Button -->
